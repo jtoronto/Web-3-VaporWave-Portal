@@ -5,6 +5,7 @@ import abi from "./utils/WavePortal.json";
 import greenLED from "./images/greenLED.png";
 import progressGif from "./images/ezgif-3-5a8433053891.gif";
 import { MessageBox } from "./messageBox.js";
+import { WinnersBox } from "./winnersBox";
 
 const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -14,8 +15,9 @@ const App = () => {
   const [shouldShowGif, setShouldShowGif] = useState(false);
   const [ethScanURL, setEthScanURL] = useState("");
   const [messageBoxText, setMessageBoxText] = useState("enter a message here");
+  const [winnersList, setWinnersList] = useState([]);
 
-  const contractAddress = "0x53A156497770efC76A101817912e6c53dddd8EfD"; //Local ganache
+  const contractAddress = "0xf2643f5c738e59bDa98Fa8F207b83F1293DbDC47"; //Local ganache
   //const contractAddress = "0x38a1f12995e2f2EC6c182C5d0073C3429b3A1187"; //rinkeby
 
   const contractABI = abi.abi;
@@ -67,6 +69,34 @@ const App = () => {
         let count = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", count.toNumber());
         setTotalWaves(count.toNumber());
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getAllWinners = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+
+        /*
+         * You're using contractABI here
+         */
+        const wavePortalContract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          provider
+        );
+
+        let winners = await wavePortalContract.getWinners();
+        console.log("Retrieved Winners", winners);
+        setWinnersList(winners);
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -191,6 +221,20 @@ const App = () => {
         setProgressTextArray((oldArray) => [...oldArray, "Mined!"]);
         console.log(progressTextArray);
         retrieveWaveCount(); //Update wave count after mining
+
+        wavePortalContract.on("NewWinner", (from, message) => {
+          setWinnersList((prev) => [...prev, from]);
+          console.log(
+            "NewWinner",
+            from,
+            message,
+            "current account",
+            currentAccount
+          );
+          if (currentAccount.toLowerCase === from.toLowerCase) {
+            alert("Whoohoo!! You won 0.0001 eth!");
+          }
+        });
         //getAllWaves();
       } else {
         console.log("Ethereum object doesn't exist!");
@@ -207,6 +251,7 @@ const App = () => {
   useEffect(() => {
     checkIfWalletIsConnected();
     getAllWaves();
+    getAllWinners();
   }, []);
 
   return (
@@ -223,6 +268,7 @@ const App = () => {
 
       <div className="dataContainer">
         <MessageBox className="messageBox" waveListArray={allWaves} />
+        <WinnersBox className="messaeBox" winnersList={winnersList} />
         <div className="waveCount">
           <h1>Total waves receieved: {totalWaves}</h1>
         </div>

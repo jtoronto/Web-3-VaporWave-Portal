@@ -13,6 +13,7 @@ contract WavePortal {
     uint256 private seed;
 
     event NewWave(address indexed from, uint256 timestamp, string message);
+    event NewWinner(address indexed from, string message);
 
     struct Wave {
         address waver;
@@ -20,9 +21,13 @@ contract WavePortal {
         uint256 timestamp;
     }
 
-    Wave[] waves;
-    mapping(address => uint256) public lastWavedAt;
+    
 
+    Wave[] waves;
+    address[] winners;
+
+    mapping(address => uint256) public lastWavedAt;
+    
 
     constructor() payable {
         console.log("We have been constructed!");
@@ -32,7 +37,7 @@ contract WavePortal {
        /*
          * We need to make sure the current timestamp is at least 15-minutes bigger than the last timestamp we stored
          */
-        require(lastWavedAt[msg.sender] + 30 seconds < block.timestamp, "Must wait 30 seconds before waving again.");
+        //require(lastWavedAt[msg.sender] + 30 seconds < block.timestamp, "Must wait 30 seconds before waving again.");
 
 
         /*
@@ -71,6 +76,8 @@ contract WavePortal {
                 "Trying to withdraw more money than the contract has."
             );
             (bool success, ) = (msg.sender).call{value: prizeAmount}("");
+            emit NewWinner(msg.sender, "New winnerrr!");
+            winners.push(msg.sender);
             require(success, "Failed to withdraw money from contract.");
         }
 
@@ -83,5 +90,9 @@ contract WavePortal {
 
     function getTotalWaves() public view returns (uint256) {
         return totalWaves;
+    }
+
+    function getWinners() public view returns (address[] memory) {
+        return winners;
     }
 }
