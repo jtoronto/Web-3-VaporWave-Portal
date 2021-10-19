@@ -102,8 +102,8 @@ body {
 
 .messageBox {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 120px;
+  left: 30px;
   height: 300px;
   width: 375px;
   overflow-y: scroll;
@@ -112,9 +112,16 @@ body {
   background-color: rgba(2, 0, 2, 0.3);
 }
 
+.aboutSection {
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+  left: 30px;
+}
+
 .winnersBox {
   position: absolute;
-  right: 50px;
+  top: 120px;
+  right: 30px;
   height: 300px;
   width: 375px;
   overflow-y: scroll;

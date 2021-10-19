@@ -17,8 +17,8 @@ const App = () => {
   const [messageBoxText, setMessageBoxText] = useState("enter a message here");
   const [winnersList, setWinnersList] = useState([]);
 
-  const contractAddress = "0xf2643f5c738e59bDa98Fa8F207b83F1293DbDC47"; //Local ganache
-  //const contractAddress = "0x38a1f12995e2f2EC6c182C5d0073C3429b3A1187"; //rinkeby
+  //const contractAddress = "0x324959544492243926B052c800939F7b408eef31"; //Local ganache
+  const contractAddress = "0x5B4803f3A52792cF6333aB29d69E6F0740aD7811"; //rinkeby
 
   const contractABI = abi.abi;
 
@@ -278,7 +278,9 @@ const App = () => {
         </div>
 
         <div className="bio">
-          私はweb３を学習中　BakamonoGatari　と申します。WAVEバッタオンを押してください！＾＿＾
+          Welcome to the (vapor) wave portal. The most ａｅｓｔｈｅｔｉｃ way to
+          send messages over the blockchain! Each message gives the winner a 50%
+          chance of winning 0.0001 eth!
         </div>
         <div className="center">
           <input
@@ -320,6 +322,16 @@ const App = () => {
             <img src={progressGif} />
           </div>
         )}
+        <div className="aboutSection">
+          Deployed to the Rinkeby network at
+          <a
+            href="https://rinkeby.etherscan.io/address/0x5B4803f3A52792cF6333aB29d69E6F0740aD7811"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            0x5B4803f3A52792cF6333aB29d69E6F0740aD7811
+          </a>
+        </div>
       </div>
     </div>
   );

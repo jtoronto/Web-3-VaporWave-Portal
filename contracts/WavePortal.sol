@@ -37,7 +37,11 @@ contract WavePortal {
        /*
          * We need to make sure the current timestamp is at least 15-minutes bigger than the last timestamp we stored
          */
-        //require(lastWavedAt[msg.sender] + 30 seconds < block.timestamp, "Must wait 30 seconds before waving again.");
+        require(
+            lastWavedAt[msg.sender] + 5 minutes < block.timestamp,
+            "Wait 5m"
+        );
+
 
 
         /*
