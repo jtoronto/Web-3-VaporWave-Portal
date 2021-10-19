@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap");
+
+body {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+  height: 1000px;
+}
+.waveCount {
+  padding-bottom: 25px;
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+  text-align: center;
+}
+
+.greenLED {
+  width: 25px;
+  height: 25px;
+  padding-right: 10px;
+}
+.connectedIndicator {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+}
+
+.progressText {
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+}
+
+.progressGif {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.header {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Press Start 2P", cursive;
+  font-style: italic;
+  color: rgb(255, 11, 222);
+}
+
+.wavePortalText {
+  margin-top: 16px;
+  font-size: 54px;
+}
+
+.ethScanURLText {
+  margin-left: 20px;
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+  padding-bottom: 25px;
+}
+.bio {
+  text-align: center;
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 0.596);
+  margin-top: 16px;
+}
+
+.waveButton {
+  cursor: pointer;
+  font-family: "DotGothic16", sans-serif;
+  margin-top: 16px;
+  padding: 8px;
+  border: 0;
+  background-color: rgb(199, 200, 202);
+  color: rgba(2, 0, 2, 0.932);
+}
+
+.inputBox {
+  background-color: rgba(2, 0, 2, 0.3);
+  margin-left: 10px;
+  height: 30px;
+  width: 200px;
+  font-family: "DotGothic16", sans-serif;
+  color: rgba(243, 238, 238, 1);
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.messageBox {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  height: 300px;
+  width: 375px;
+  overflow-y: scroll;
+  font-family: "DotGothic16", sans-serif;
+  color: rgb(255, 11, 222);
+  background-color: rgba(2, 0, 2, 0.3);
+}
+
+#msgBoxScrollBar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(2, 0, 2, 0.3);
+  border-radius: 10px;
+  background-color: rgba(221, 9, 221, 0.3);
+}
+
+#msgBoxScrollBar::-webkit-scrollbar {
+  width: 7px;
+  background-color: rgba(2, 0, 2, 0.3);
+}
+
+#msgBoxScrollBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(219, 8, 8, 0.3);
+  background-color: rgba(255, 11, 222, 0.5);
+}
