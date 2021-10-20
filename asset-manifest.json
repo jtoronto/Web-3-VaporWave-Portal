@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Web-3-VaporWave-Portal/static/css/main.a29a9e8a.chunk.css",
+    "main.js": "/Web-3-VaporWave-Portal/static/js/main.a0c415b7.chunk.js",
+    "main.js.map": "/Web-3-VaporWave-Portal/static/js/main.a0c415b7.chunk.js.map",
+    "runtime-main.js": "/Web-3-VaporWave-Portal/static/js/runtime-main.42dcf5fc.js",
+    "runtime-main.js.map": "/Web-3-VaporWave-Portal/static/js/runtime-main.42dcf5fc.js.map",
+    "static/js/2.1060f514.chunk.js": "/Web-3-VaporWave-Portal/static/js/2.1060f514.chunk.js",
+    "static/js/2.1060f514.chunk.js.map": "/Web-3-VaporWave-Portal/static/js/2.1060f514.chunk.js.map",
+    "index.html": "/Web-3-VaporWave-Portal/index.html",
+    "static/css/main.a29a9e8a.chunk.css.map": "/Web-3-VaporWave-Portal/static/css/main.a29a9e8a.chunk.css.map",
+    "static/js/2.1060f514.chunk.js.LICENSE.txt": "/Web-3-VaporWave-Portal/static/js/2.1060f514.chunk.js.LICENSE.txt",
+    "static/media/ezgif-3-5a8433053891.e5f26fbf.gif": "/Web-3-VaporWave-Portal/static/media/ezgif-3-5a8433053891.e5f26fbf.gif",
+    "static/media/greenLED.b8867b90.png": "/Web-3-VaporWave-Portal/static/media/greenLED.b8867b90.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.42dcf5fc.js",
+    "static/js/2.1060f514.chunk.js",
+    "static/css/main.a29a9e8a.chunk.css",
+    "static/js/main.a0c415b7.chunk.js"
+  ]
+}
